@@ -41,12 +41,12 @@ deploy-to-oke:
         insecure-skip-tls-verify: true
         command: create namespace $WERCKER_APPLICATION_OWNER_NAME
         
-    - kubectl:
-        name: create OCR secret
-        server: $KUBERNETES_MASTER
-        token: $KUBERNETES_TOKEN
-        insecure-skip-tls-verify: true
-        command: create secret docker-registry wrelease --docker-server=wcr.io --docker-username=$WERCKER_APPLICATION_OWNER_NAME --docker-password=$KUBERNETES_TOKEN --docker-email=${WERCKER_APPLICATION_OWNER_NAME}@mail.com --namespace=$WERCKER_APPLICATION_OWNER_NAME
+#    - kubectl:
+#        name: create OCR secret
+#        server: $KUBERNETES_MASTER
+#        token: $KUBERNETES_TOKEN
+#        insecure-skip-tls-verify: true
+#        command: create secret docker-registry wrelease --docker-server=$DOCKERHUB_REGISTRY --docker-username=$WERCKER_APPLICATION_OWNER_NAME --docker-password=$KUBERNETES_TOKEN --docker-email=${WERCKER_APPLICATION_OWNER_NAME}@mail.com --namespace=$WERCKER_APPLICATION_OWNER_NAME
         
     - kubectl:
         name: create deplyoment
